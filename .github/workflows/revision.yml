@@ -1,0 +1,22 @@
+name: revision
+on:
+  pull_request:
+    types:
+      - opened
+  push:
+    branches:
+      - main
+      - dev-*
+      - feature/**
+    paths-ignore:
+      - .github\workflows
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: sample
+      run: echo "This is just sample revision"
+
+
+# to skip workflow to run on push, we can use git commit below
+# git commit -m "revision commir [skip ci]"
